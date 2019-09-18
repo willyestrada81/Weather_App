@@ -1,0 +1,115 @@
+<%- include('partials/header'); -%>
+
+    <div class="container">
+        <div class="main">
+            <div class="search">
+                <form action="/" method="POST" id="search">
+                    <input type="text" name="location" id="search_term" placeholder="Start Typing City">
+                    <button type="submit">
+                        Search
+                    </button>
+                </form>
+                <div id="match-list"></div>
+            </div>
+            <div class="current-city">
+                <i class="fas fa-map-marker-alt"></i>
+                <h6>Current City Name</h6>
+                <p id="curTime">
+                    
+                </p>
+            </div>
+        </div>
+        <div class="info">
+            <div class="cur-info">
+                <% weatherData.forEach(function(weatherData){ %>
+                    <% if(weatherData.weather === "Rain"){ %>
+                        <div class="temp">
+                            <h1>
+                                <%= weatherData.temp %>
+                            </h1>
+                        </div>
+                        <div class="cur-weather-img">
+                            <img src="/img/summer-rain.png" alt="">
+                        </div>
+                        <div class="cur-wind">
+                            <p>
+                                <%= weatherData.wind %>mph
+                            </p>
+                        </div>
+                        <div class="temp-min">
+                            <p>
+                                <%= weatherData.temp_min %>
+                            </p>
+                        </div>
+                        <div class="temp-max">
+                            <p>
+                                <%= weatherData.temp_max %>
+                            </p>
+                        </div>
+                        <% }else if(weatherData.weather === "Clear"){ %>
+                            <div class="temp">
+                                <h1>
+                                    <%= weatherData.temp %>
+                                </h1>
+                            </div>
+                            <div class="cur-weather-img">
+                                <img src="/img/sunny.png" alt="">
+                            </div>
+                            <div class="cur-wind">
+                                <p>
+                                    <%= weatherData.wind %>mph
+                                </p>
+                            </div>
+                            <div class="temp-min">
+                                <p>
+                                    <%= weatherData.temp_min %>
+                                </p>
+                            </div>
+                            <div class="temp-max">
+                                <p>
+                                    <%= weatherData.temp_max %>
+                                </p>
+                            </div>
+                            <% }else if(weatherData.weather === "Clouds"){ %>
+                                <div class="temp">
+                                    <h1>
+                                        <%= weatherData.temp %>
+                                    </h1>
+                                </div>
+                                <div class="cur-weather-img">
+                                    <img src="/img/clouds.png" alt="">
+                                </div>
+                                <div class="cur-wind">
+                                    <p>
+                                        <%= weatherData.wind %>mph
+                                    </p>
+                                </div>
+                                <div class="temp-min">
+                                    <p>
+                                        <%= weatherData.temp_min %>
+                                    </p>
+                                </div>
+                                <div class="temp-max">
+                                    <p>
+                                        <%= weatherData.temp_max %>
+                                    </p>
+                                </div>
+
+            </div>
+            <% } %>
+                <% }) %>
+
+        </div>
+    </div>
+    </div>
+
+<script>
+
+    function activatePlacesSearch() {
+        var input = document.getElementById('search_term');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }
+
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA78DF4W-2sNE_avQ5kjFsWMw9yVYz40QY&libraries=places&callback=activatePlacesSearch"></script>
+    <%- include('partials/footer'); -%>

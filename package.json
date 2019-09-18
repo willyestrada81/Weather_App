@@ -1,0 +1,20 @@
+{
+  "name": "wheather_app",
+  "version": "1.0.0",
+  "description": "This App Connect to Weather API to display current weather to the entred city",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "local": "nodemon app.js",
+    "sass": "node-sass sass/main.scss public/css/style.css"
+  },
+  "author": "William Estrada",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-router": "0.0.1",
+    "node-sass": "^4.12.0"
+  }
+}

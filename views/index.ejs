@@ -1,0 +1,33 @@
+<%- include('partials/header'); -%>
+
+    <div class="container-index">
+        <div class="main">
+            <div class="search">
+                <form action="/" method="POST" id="search">
+                    <input type="text" name="location" id="search_term" placeholder="Start Typing City">
+                  <button type="submit">Search</button>
+                </form>
+                <div id="match-list"></div>
+            </div>
+            <div class="current-city">
+                <i class="fas fa-map-marker-alt"></i>
+              
+                <p id="curTime">
+                  
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<script>
+
+    function activatePlacesSearch() {
+        var input = document.getElementById('search_term');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }
+
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA78DF4W-2sNE_avQ5kjFsWMw9yVYz40QY&libraries=places&callback=activatePlacesSearch"></script>
+
+    <%- include('partials/footer'); -%>

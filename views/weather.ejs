@@ -1,107 +1,114 @@
 <%- include('partials/header'); -%>
 
+    <div class="location">
+        <i class="fas fa-map-marker-alt"></i>
+        <% weatherData.forEach(function(weatherData){ %>
+            <h6><%= weatherData.city %></h6>
+        <% }) %>
+        <p id="curTime"></p>
+    </div>
+
     <div class="container">
         <div class="main">
+            <div class="current-city-1">
+                <p id="greeting"></p>
+            </div>
             <div class="search">
                 <form action="/" method="POST" id="search">
                     <input type="text" name="location" id="search_term" placeholder="Start Typing City">
-                    <button type="submit">
+                    <button class="btn-block" type="submit">
                         Search
                     </button>
                 </form>
                 <div id="match-list"></div>
             </div>
-            <div class="current-city">
-                <i class="fas fa-map-marker-alt"></i>
-                <h6>Current City Name</h6>
-                <p id="curTime">
-                    
-                </p>
-            </div>
+
         </div>
-        <div class="info">
-            <div class="cur-info">
-                <% weatherData.forEach(function(weatherData){ %>
-                    <% if(weatherData.weather === "Rain"){ %>
-                        <div class="temp">
-                            <h1>
+
+    </div>
+
+
+        <div class="cur-info">
+            <% weatherData.forEach(function(weatherData){ %>
+                <% if(weatherData.weather === "Rain"){ %>
+                    <div class="weather-item">
+                        <p>
+                            <%= weatherData.temp %>
+                        </p>
+                    </div>
+                    <div class="weather-item">
+                        <img src="/img/summer-rain.png" alt="">
+                    </div>
+                    <div class="weather-item">
+                        <p>
+                            <%= weatherData.wind %>mph
+                        </p>
+                    </div>
+                    <div class="weather-item">
+                        <p>
+                            <%= weatherData.temp_min %>
+                        </p>
+                    </div>
+                    <div class="weather-item">
+                        <p>
+                            <%= weatherData.temp_max %>
+                        </p>
+                    </div>
+                    <% }else if(weatherData.weather === "Clear"){ %>
+                        <div class="weather-item">
+                            <p>
                                 <%= weatherData.temp %>
-                            </h1>
+                            </p>
                         </div>
-                        <div class="cur-weather-img">
-                            <img src="/img/summer-rain.png" alt="">
+                        <div class="weather-item">
+                            <img src="/img/sunny.png" alt="">
                         </div>
-                        <div class="cur-wind">
+                        <div class="weather-item">
                             <p>
                                 <%= weatherData.wind %>mph
                             </p>
                         </div>
-                        <div class="temp-min">
+                        <div class="weather-item">
                             <p>
                                 <%= weatherData.temp_min %>
                             </p>
                         </div>
-                        <div class="temp-max">
+                        <div class="weather-item">
                             <p>
                                 <%= weatherData.temp_max %>
                             </p>
                         </div>
-                        <% }else if(weatherData.weather === "Clear"){ %>
-                            <div class="temp">
-                                <h1>
+                        <% }else if(weatherData.weather === "Clouds"){ %>
+                            <div class="weather-item">
+                                <p>
                                     <%= weatherData.temp %>
-                                </h1>
+                                </p>
                             </div>
-                            <div class="cur-weather-img">
-                                <img src="/img/sunny.png" alt="">
+                            <div class="weather-item">
+                                <img src="/img/clouds.png" alt="">
                             </div>
-                            <div class="cur-wind">
+                            <div class="weather-item">
                                 <p>
                                     <%= weatherData.wind %>mph
                                 </p>
                             </div>
-                            <div class="temp-min">
+                            <div class="weather-item">
                                 <p>
                                     <%= weatherData.temp_min %>
                                 </p>
                             </div>
-                            <div class="temp-max">
+                            <div class="weather-item">
                                 <p>
                                     <%= weatherData.temp_max %>
                                 </p>
                             </div>
-                            <% }else if(weatherData.weather === "Clouds"){ %>
-                                <div class="temp">
-                                    <h1>
-                                        <%= weatherData.temp %>
-                                    </h1>
-                                </div>
-                                <div class="cur-weather-img">
-                                    <img src="/img/clouds.png" alt="">
-                                </div>
-                                <div class="cur-wind">
-                                    <p>
-                                        <%= weatherData.wind %>mph
-                                    </p>
-                                </div>
-                                <div class="temp-min">
-                                    <p>
-                                        <%= weatherData.temp_min %>
-                                    </p>
-                                </div>
-                                <div class="temp-max">
-                                    <p>
-                                        <%= weatherData.temp_max %>
-                                    </p>
-                                </div>
-
-            </div>
-            <% } %>
-                <% }) %>
 
         </div>
-    </div>
-    </div>
+        <% } %>
+            <% }) %>
+
+
+
 
 
     <%- include('partials/footer'); -%>

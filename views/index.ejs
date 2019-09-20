@@ -2,23 +2,20 @@
 
     <div class="container-index">
         <div class="main">
+            <div class="greeting">
+                <p id="curTime"></p>
+                <p id="greeting"></p>
+            </div>
             <div class="search">
                 <form action="/" method="POST" id="search">
                     <input type="text" name="location" id="search_term" placeholder="Start Typing City">
-                  <button type="submit">Search</button>
+                  <button class="btn-block" type="submit">Search</button>
                 </form>
                 <div id="match-list"></div>
             </div>
-            <div class="current-city">
-                <i class="fas fa-map-marker-alt"></i>
-              
-                <p id="curTime">
-                  
-                </p>
-            </div>
         </div>
     </div>
-    </div>
+
 
 
     <%- include('partials/footer'); -%>

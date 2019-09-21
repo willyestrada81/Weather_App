@@ -4,7 +4,7 @@ Weather App is a Node application inspired by the "Momentum" Chrome Extension. I
 
 ## Installation
 
-Use the package manager [npm](https://www.npmjs.com/package/npm/) to install foobar.
+Use the package manager [npm](https://www.npmjs.com/package/npm/) to install.
 
 ```bash
 npm install

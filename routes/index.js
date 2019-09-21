@@ -2,6 +2,9 @@ const express = require("express")
 const router = express.Router();
 const axios = require('axios');
 
+const weather_api = require('../public/js/config').WEATHER_API;
+console.log(weather_api);
+
 router.get('/', (req, res) => {
     res.render("index")
 })
@@ -10,7 +13,8 @@ router.post('/', (req, res) => {
     let cityName = req.body.location;
     console.log(cityName);
     let location = cityName.charAt(0).toUpperCase() + cityName.slice(1);
-    let api = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=7455a3688993204b856820338e22b9c3`;
+    const WEATHER_API = weather_api; 
+    let api = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${WEATHER_API}`; 
 
     axios.get(api)
         .then(response => {

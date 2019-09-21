@@ -1,7 +1,7 @@
 const express = require('express');
 const ejs = require('ejs');
 
-
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -23,5 +23,5 @@ app.use('/', require('./routes/index')); //IMPORT ROUTES FROM THE INDEX.JS FILE 
 
 
 app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}`)
+    console.log(`App listening on port ${PORT}`) 
 })

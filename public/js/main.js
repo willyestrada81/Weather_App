@@ -73,3 +73,9 @@ function displayGreeting (){
 }
 DisplayTime();
 displayGreeting();
+
+//API Config
+let key = googleAPIkey.key;
+let src = `https://maps.googleapis.com/maps/api/js?key=${key}&libraries=places&callback=activatePlacesSearch`;
+let googleAPI = document.getElementById('googleAPI');
+googleAPI.src = src;

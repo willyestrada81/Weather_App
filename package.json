@@ -16,6 +16,6 @@
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "express-router": "0.0.1",
-    "node-sass": "^4.12.0"
+    "node-sass": "^7.0.0"
   }
 }
